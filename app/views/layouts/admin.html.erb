@@ -17,7 +17,7 @@
 	<% end %>
 		<div id="admin--only">
 			<div class="sidebar">
-				<%= link_to "WWF Admin", admin_show_path, class: 'sidebar--header'%>
+				<%= link_to "WWF Admin", admin_path, class: 'sidebar--header'%>
 				<% if user_signed_in? %>
 					<div class="sidebar--user">
 						<span>Logged in as <strong><%= current_user.email %></strong></span>
