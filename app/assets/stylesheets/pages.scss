@@ -27,6 +27,9 @@ $brown--dark : #341200;
 .text-center {
 	text-align: center;
 }
+.header-font {
+	font-family: 'WWF';
+}
 
 //base styles
 .wrapper {
@@ -58,10 +61,13 @@ p {
 p + p {
 	margin-bottom: 12px;
 }
-
+h1 {
+	font-family: 'WWF';
+}
 h2 {
 	color: $black;
 	margin-top: 0;
+	font-family: 'WWF';
 }
 h3 {
 	color: $green;
@@ -81,6 +87,7 @@ a {
 	border-radius: 5px;
 	color: $brown;
 	display: inline-block;
+	font-family: 'WWF';
 }
 
 .button--secondary {
@@ -95,6 +102,7 @@ a {
 nav {
 	background: $white;
 	padding: 40px 0;
+	font-family: 'WWF';
 	.wrapper {
 		display: flex;
 	}
