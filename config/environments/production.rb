@@ -36,7 +36,7 @@ Rails.application.configure do
   config.assets.digest = true
 
   config.action_dispatch.default_headers = {
-      'X-Frame-Options' => 'ALLOW-FROM http://wwf.carolinian.upatfive.xyz'
+      'X-Frame-Options' => 'ALLOWALL'
   }
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
