@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WwfCarolinian</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<nav>
+	<div class="wrapper">
+		<div class="logo">LOGO</div>
+		<ul>
+			<li><a href="">in the zone</a></li>
+			<li><a href="">zone toolkits</a></li>
+			<li><a href="">journey</a></li>
+			<li><a href="">events</a></li>
+			<li><a href="">sign up</a></li>
+		</ul>
+	</div>
+</nav>
+<%= yield %>
+<footer>
+	<div class="footer--main">	
+		<div class="wrapper">
+			<div class="links">
+				<h3>In The Zone</h3>
+				<ul>
+					<li><%= link_to 'About', about_path %></li>
+					<li><a href="">Privacy Policy</a></li>
+				</ul>	
+			</div>
+			<div class="logos"></div>
+		</div>
+	</div>
+	<div class="footer--copyright">
+		<p class="text-center">© 2016 WWF. ALL RIGHTS RESERVED.</p>
+	</div>
+</footer>
+</body>
+</html>
