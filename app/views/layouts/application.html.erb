@@ -20,6 +20,22 @@
 	</div>
 </nav>
 <%= yield %>
-
+<footer>
+	<div class="footer--main">	
+		<div class="wrapper">
+			<div class="links">
+				<h3>In The Zone</h3>
+				<ul>
+					<li><%= link_to 'About', about_path %></li>
+					<li><a href="">Privacy Policy</a></li>
+				</ul>	
+			</div>
+			<div class="logos"></div>
+		</div>
+	</div>
+	<div class="footer--copyright">
+		<p class="text-center">© 2016 WWF. ALL RIGHTS RESERVED.</p>
+	</div>
+</footer>
 </body>
 </html>

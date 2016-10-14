@@ -15,6 +15,8 @@ $black : #1D1D1D;
 $beige : #FF9677;
 $yellow : #FAFA7A;
 $grey : #6C5B52;
+$beige--med : #E3E6DC;
+$beige--light: #F6F8F1;
 $grey--light : #F4F4F4;
 $green : #257101;
 $green--light : #A3C74B;
@@ -73,15 +75,19 @@ a {
 
 //elements
 
-.button {
+.button, a.button {
 	padding: 12px 20px;
 	text-transform: uppercase;
 	border-radius: 5px;
+	color: $brown;
+	display: inline-block;
 }
 
-.button--secondary, a.button--secondary {
+.button--secondary {
 	background: $yellow;
-	color: $brown;
+}
+.button--primary {
+	background: $beige;
 }
 
 
@@ -109,6 +115,9 @@ nav {
 			text-decoration: none;
 			text-transform: uppercase;
 			color: $green;
+			&:hover {
+				color: $green--light;
+			}
 		}
 	}
 }
@@ -164,7 +173,91 @@ header {
 	}
 }
 
+//JOURNEY SECTION
+.journey--items {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	li {
+		display:flex;
+		margin-bottom: 20px;
 
+	}
+	.count {
+		background: $beige--med;
+		color: $brown;
+		padding: 0 30px;
+		display: flex;
+		span {
+			margin: auto;
+		}
+	}
+	.content {
+		background: $beige--light;
+		padding: 30px;
+		flex-grow: 1;
+		h3 {
+			margin-top: 0;
+		}
+	}
+}
+
+//EVENTS SECTION 
+.section--events {
+	background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.4) ), url(bg-events.jpeg) center;
+	background-size: cover;
+	padding: 120px 0;
+	h2 {
+		color: white;
+	}
+	.events--item {
+		background: white;
+		padding: 30px 20px;
+		h3 {
+			margin-top: 0;
+		}
+		.date {
+			color: $green--light;
+		}
+		p {
+			width: 80%;
+			color: $brown;
+		}
+	}
+}
+
+//Sign Up
+.section--sign-up {
+	h2 {
+		color: $green--light;
+	}
+}
+
+//FOOTER 
+footer {
+	color: white;
+	a {
+		color: white;
+	}
+}
+.footer--main {
+	background: $brown;
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	h3 {
+		border-bottom: 2px solid grey;
+		display: inline-block;
+		padding-bottom: 20px;
+		padding-right: 30px;
+		color: white;
+	}
+}
+.footer--copyright {
+	background: $brown--dark;
+}
 
 
 
