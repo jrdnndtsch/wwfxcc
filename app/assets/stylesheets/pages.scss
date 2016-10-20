@@ -12,17 +12,17 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 //variables 
 $white : #F4F4F4;
 $black : #1D1D1D;
-$beige : #FF9677;
+$beige : #FF8264;
 $yellow : #FAFA7A;
-$grey : #6C5B52;
+$grey : #A4AAA2;
 $beige--med : #E3E6DC;
-$beige--light: #F6F8F1;
+$beige--light: #E3E6DC;
 $grey--light : #F4F4F4;
-$green : #257101;
+$green : #439A22;
 $green--light : #A3C74B;
 $brown : #532000;
 $brown--dark : #341200;
-
+@import 'display-for';
 //helper classes
 .text-center {
 	text-align: center;
@@ -32,16 +32,42 @@ $brown--dark : #341200;
 }
 
 //base styles
+body {
+	font-family: 'Open Sans', sans-serif;
+}
 .wrapper {
-	width: 80%;
-	max-width:1024px;
+	width: 85%;
+	max-width:1100px;
 	margin: 0 auto;
+	@include display-for(sm xs){
+		flex-wrap: wrap;
+	}
 
+}
+
+.wrapper--nav {
+	max-width: 1200px;
+}
+
+.wrapper--small {
+	width: 80%;
+	max-width: 900px;
+	margin: 0 auto;
+	@include display-for(sm xs){
+		flex-wrap: wrap;
+	}
+}
+
+.flex-container {
+	display:flex;
+	@include display-for(sm xs){
+		flex-wrap: wrap;
+	}
 }
 
 .section-primary {
 	background: white;
-	padding: 120px 0 80px 0;
+	padding: 120px 0 180px 0;
 }
 
 .section-primary + .section-primary {
@@ -53,21 +79,53 @@ $brown--dark : #341200;
 }
 .section-secondary {
 	padding: 80px 0;
+	background: $beige--med;
 }
 
+.section-secondary + .section-secondary {
+	padding-top: 40px;
+}
+.section-tertiary {
+	padding: 80px 0 120px;
+	background: linear-gradient(bottom right, #267305, #1C3908);
+	h2 {
+		color: $green--light;
+	}
+	p {
+		color: white;
+	}
+}
+
+.center {
+	text-align:center;
+}
 p {
 	margin:0;
+	font-family: 'Helvetica';
+	font-size: 16px;
+	line-height: 28px;
+	color: $brown--dark;
+}
+p.sub-title {
+	font-size: 18px;
+	width: 80%;
+	margin: 0 10% 60px;
+
 }
 p + p {
-	margin-bottom: 12px;
+	margin-top: 12px;
 }
 h1 {
 	font-family: 'WWF';
 }
 h2 {
-	color: $black;
+	color: $green;
+	text-align: center;
 	margin-top: 0;
 	font-family: 'WWF';
+	font-size: 42px;
+	letter-spacing: 1.5px;
+	font-weight: lighter;
 }
 h3 {
 	color: $green;
@@ -78,13 +136,19 @@ a {
 	transition: 0.3s all ease;
 }
 
+img {
+	max-width: 100%;
+}
+
 
 //elements
 
 .button, a.button {
 	padding: 12px 20px;
 	text-transform: uppercase;
-	border-radius: 5px;
+	// border-radius: 5px;
+	font-size: 22px;
+	letter-spacing: 2px;
 	color: $brown;
 	display: inline-block;
 	font-family: 'WWF';
@@ -100,17 +164,28 @@ a {
 
 //Top Navigation
 nav {
-	background: $white;
-	padding: 40px 0;
+	background: $grey--light;
 	font-family: 'WWF';
+	font-size: 20px;
+	letter-spacing: 2px;
+	position: absolute;
+	top: 65px;
+	width: 100%;
+	@include display-for(md sm xs) {
+		top: 0;
+	}
 	.wrapper {
 		display: flex;
 	}
 	ul, .logo {
-		flex-basis: 360px;
+		flex-basis: 200px;
 	}
 	.logo {
 		flex-shrink: 1;
+		img {
+			position: absolute;
+			top: -50%;
+		}
 	}
 	ul {
 		list-style: none;
@@ -119,10 +194,23 @@ nav {
 		display: flex;
 		flex-grow: 1;
 		justify-content: space-between;
+		li {
+			flex-grow: 1;
+			text-align: center;
+		}
+		li.nav--sign-up {
+			background: $beige;
+			a {
+				color: $brown--dark;
+			}
+		}
 		a {
 			text-decoration: none;
 			text-transform: uppercase;
 			color: $green;
+			padding: 18px 0;
+			width:100%;
+			display:inline-block;
 			&:hover {
 				color: $green--light;
 			}
@@ -134,23 +222,115 @@ nav {
 header {
 	background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.3)), image-url('butterfly-header.jpg') center fixed;
 	background-size: cover;
-	height: 80vh;
+	height: 100vh;
 	text-align: center;
 	color: $white;
-	padding-top: 30vh;
+	padding-top: 40vh;
+	h1{
+		font-size: 58px;
+		font-weight: lighter;
+		letter-spacing: 2px;
+	}
+	font-family: 'WWF';
 }
 
+//ABOUT SECTION
+.section--about {
+	h2 {
+		color: $green;
+		font-size: 65px;
+		font-weight: lighter;
+		line-height: 80px;
+		text-align: left;
+		letter-spacing: 2.5px;
+	}
+	h3 {
+		color: $green--light;
+		font-weight: lighter;
+		font-size: 24px;
+		line-height: 38px;
+	}
+	.about--content {
+		width: 60%;
+		margin-right: 10%;
+	}
+	.about--image {
+		width: 30%;
+		margin-top: 40px;
+	}
+	@include display-for(md) {
+		.about--content {
+			margin-right: 5%;
+		}
+		.about--image {
+			width: 35%;
+		}
+	}
+	@include display-for(sm xs) {
+		.about--content {
+			width: 100%;
+			margin-right: 0;
+		}
+		.about--image {
+			width: 100%;
+			text-align: center;
+		}
+	}
+
+}
 //ZONE TOOLKITS
 .zone-toolkits--items {
-	margin: 0 -30px;
-	figure {
+	flex-wrap: wrap;
+	> div {
+		flex: 1 0 45%;
 		position: relative;
-		height: 300px;
-		background: $grey--light;
+		margin-bottom: 5%;
+		&:nth-of-type(2n + 1) {
+			margin-right: 5%;
+		}
+		&:after {
+			content: '';
+			display: block;
+			padding-bottom: 100%;
+		}
+	}
+	@include display-for(md) {
+
+	}
+	@include display-for(sm xs) {
+		> div {
+			flex: 1 0 100%;
+			&:nth-of-type(2n + 1) {
+				margin-right: 0;
+			}
+		}
+	}
+	figure {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background: white;
+		padding: 40px;
+		text-align: center;
+		box-shadow: 2px 4px 4 rgba(0,0,0,0.7);
+		> p {
+			position: absolute;
+			bottom: 40px;
+			left: 40px;
+			right: 40px;
+		}
 		&:hover {
 			figcaption {
 				opacity: 1;
 			}
+		}
+		img {
+			width: 60%;
+			margin: 0 20%;
+		}
+		.chimpmunk-icon {
+			width: 50%;
+			margin: 0 25%;
 		}
 		figcaption {
 			background: $brown;
@@ -186,50 +366,162 @@ header {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	li {
-		display:flex;
-		margin-bottom: 20px;
+	position: relative;
+	&:after{
+		content: '';
+		width: 2px;
+		background: $grey;
+		position: absolute;
+		top: 50px;
+		bottom: 50px;
+		left: 40px;
 
 	}
+	@include display-for(sm) {
+		&:after {
+			top: 70px;
+			bottom: 70px;
+		}
+	}
+	li {
+		display:flex;
+		align-items: center;
+		margin-bottom: 20px;
+		
+		
+	}
 	.count {
-		background: $beige--med;
-		color: $brown;
-		padding: 0 30px;
+		background: $green--light;
+		color: white;
+		height: 80px;
+		width: 80px;
+		border-radius: 50%;
+		font-size: 40px;
 		display: flex;
+		border: 5px solid white;
+		flex: 0 0 80px;
+		z-index: 1;
+		transition: 0.3s all ease;
+		&:hover {
+			border: 5px solid $green;
+		}
+
 		span {
 			margin: auto;
 		}
 	}
 	.content {
-		background: $beige--light;
 		padding: 30px;
+		display: flex;
 		flex-grow: 1;
+		align-items: center;
 		h3 {
 			margin-top: 0;
+		}
+		.img {
+			// margin-right: 20px;
+			flex: 0 0 120px;
+			text-align: center;
 		}
 	}
 }
 
-//EVENTS SECTION 
-.section--events {
-	background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.4) ), image-url('bg-events.jpeg') center;
-	background-size: cover;
-	padding: 120px 0;
-	h2 {
+//STORIES SECTION
+
+h2.stories--title {
+	margin-bottom: 80px;
+}
+.section--stories {
+	color: white;
+	margin-bottom: 160px;
+	.stories--image {
+		width: 37%;
+		margin-right: 8%;
+	}
+	.stories--content {
+		width: 55%;
+	}
+	h3 {
 		color: white;
 	}
+	@include display-for(sm xs){
+		.stories--image {
+			width: 100%;
+			margin-right: 0;
+			img {
+				width: 100%;
+			}
+		}
+		.stories--content {
+			width: 100%;
+		}
+	}
+}
+//EVENTS SECTION 
+h2.events--title {
+	margin-bottom: 60px;
+}
+.section--events {
+	justify-content: space-between;
 	.events--item {
 		background: white;
-		padding: 30px 20px;
+		padding: 30px 22px;
+		flex: 0 0 30%;
 		h3 {
 			margin-top: 0;
+			font-size: 24px;
+			margin-bottom: 8px;
+			letter-spacing: 1.2px;
+			font-weight: lighter;
 		}
 		.date {
 			color: $green--light;
+			font-size: 18px;
+		}
+		h3, .date {
+			font-family: 'WWF';
 		}
 		p {
 			width: 80%;
 			color: $brown;
+		}
+	}
+	// @include display-for(sm) {
+	// 	.events--item {
+	// 		&:first-of-type {
+	// 			margin-right: 20px;
+	// 		}
+	// 	}
+	// }
+	// @include display-for(sm xs) {
+	// 	.events--item {
+	// 		flex: 1 0 300px;
+	// 		margin-bottom: 20px;
+	// 	}
+	// }
+}
+@include display-for(md sm xs) {
+	.section--events {
+		flex-wrap : wrap;
+		.events--item {
+			flex: 1 0 300px;
+			margin-bottom: 20px;
+			&:first-of-type {
+				margin-right: 20px;
+			}
+
+		}
+	}
+
+}
+@include display-for(sm xs) {
+	.section--events {
+		.events--item {
+			flex: 1 0 100%;
+			&:first-of-type {
+				margin-right: 0;
+			}
+
 		}
 	}
 }
@@ -246,27 +538,36 @@ header {
 //FOOTER 
 footer {
 	color: white;
+	font-weight: 100;
 	a {
 		color: white;
 	}
 }
 .footer--main {
 	background: $brown;
+	padding: 40px 0;
 	ul {
 		list-style: none;
 		margin: 0;
 		padding: 0;
 	}
 	h3 {
+		font-weight: 100;
 		border-bottom: 2px solid grey;
 		display: inline-block;
 		padding-bottom: 20px;
 		padding-right: 30px;
 		color: white;
+		margin-top: 0;
 	}
 }
 .footer--copyright {
 	background: $brown--dark;
+	padding: 12px 0;
+	p{
+		color: white;
+		font-size: 14px;
+	}
 }
 
 

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root 'pages#index'
   get '/about' => 'pages#about'
   get '/admin' => 'admin#show'
+  get 'privacy-policy' => 'pages#privacy_policy'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
