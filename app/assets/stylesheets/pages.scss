@@ -162,7 +162,7 @@ img {
 }
 
 
-//Top Navigation
+// NAV
 nav {
 	background: $grey--light;
 	font-family: 'WWF';
@@ -171,20 +171,87 @@ nav {
 	position: absolute;
 	top: 65px;
 	width: 100%;
-	@include display-for(md sm xs) {
-		top: 0;
+	
+	.main--toggle {
+		display: none;
+		@include display-for(md sm xs) {
+			float: right ;
+			display: block;
+			transition: all 0.3s;
+			padding: 22px 0 28px;
+			padding-right: 18px;
+			&:hover {
+
+				&:before{
+
+					transform: translate3d(0, -1px, 0);
+				}
+				&:after {
+					transform: translate3d(0, 1px, 0);
+				}
+			}
+			&:before, &:after{
+				content: ' ';
+				width: 32px;
+				height: 2px;
+				background: $brown--dark;
+				display: block;
+				margin-top: 6px;
+				transition: all 0.3s;
+			}
+					
+			span{
+				width: 32px;
+				height: 2px;
+				margin-top: 6px;
+				display: block;
+				background: $brown--dark;
+				transition: all 0.3s;
+			}
+
+		}
 	}
+
+	.main--toggle.active{
+		@include display-for(md sm xs){
+			padding: 21px 0 27px;
+			padding-right: 18px;
+			span {
+				opacity: 0;
+				width: 28px;
+				height: 4px;
+				transform: translate3d(0, 0, 0) rotate(45deg);
+			}
+			&:before{
+				transform: translate3d(0, 8px, 0) rotate(45deg);
+				width: 22px;
+				height: 2px;
+			}
+			&:after{
+				transform: translate3d(0, -10px, 0) rotate(-45deg);
+				width: 22px;
+				height: 2px;
+			}
+		}
+	}
+		
+
 	.wrapper {
 		display: flex;
 	}
 	ul, .logo {
-		flex-basis: 200px;
+		// flex-basis: 100px;
 	}
 	.logo {
 		flex-shrink: 1;
 		img {
 			position: absolute;
 			top: -50%;
+			@include display-for(md sm xs) {
+				top: 6px;
+				width: 100px;
+				z-index: 10;
+			}
 		}
 	}
 	ul {
@@ -194,6 +261,7 @@ nav {
 		display: flex;
 		flex-grow: 1;
 		justify-content: space-between;
+		padding: 0;
 		li {
 			flex-grow: 1;
 			text-align: center;
@@ -213,6 +281,28 @@ nav {
 			display:inline-block;
 			&:hover {
 				color: $green--light;
+			}
+		}
+	}
+	@include display-for(md sm xs) {
+		top: 0;
+		position: relative;
+		height: 40px;
+		ul {
+			position:absolute;
+			top: 100%;
+			background: $grey--light;
+			display: none;
+			width: 100%;
+			left: 0;
+			padding: 40px 50px 20px;
+			border-top: 1px solid rgba(0,0,0,0.2);
+			z-index: 1;
+			li {
+				text-align: left;
+			}
+			li.nav--sign-up {
+				background: $grey--light;
 			}
 		}
 	}

@@ -8,10 +8,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav>
+<nav class="clearfix">
+		<a href="#" class="main--toggle">
+			<span></span>
+		</a>
 	<div class="wrapper wrapper--nav">
 		<div class="logo"><%= image_tag 'logo.png'%></div>
-		<ul>
+		<ul class="menu--main">
 			<li><%= link_to 'About', about_path %></li>
 			<li><a href="">in the zone</a></li>
 			<li><a href="">zone toolkits</a></li>
@@ -41,3 +44,61 @@
 </footer>
 </body>
 </html>
+<script>
+	//smartresize function (to deal with window maximize button and resize)
+	(function($,sr){
+	  var debounce = function (func, threshold, execAsap) {
+	      var timeout;
+
+	      return function debounced () {
+	          var obj = this, args = arguments;
+	          function delayed () {
+	              if (!execAsap)
+	                  func.apply(obj, args);
+	              timeout = null;
+	          };
+
+	          if (timeout)
+	              clearTimeout(timeout);
+	          else if (execAsap)
+	              func.apply(obj, args);
+
+	          timeout = setTimeout(delayed, threshold || 100);
+	      };
+	  }
+	  // smartresize 
+	  jQuery.fn[sr] = function(fn){  return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
+
+	})(jQuery,'smartresize');
+	//hamburger nav
+	$('.main--toggle').on('click', function(e){
+		e.preventDefault();
+		$(this).toggleClass('active');
+		$('.menu--main').slideToggle('normal')
+	})
+	var windowSize = $(window).innerWidth()
+
+	function mainMenuSmall(){
+		if(windowSize <= 960){
+			$('.menu--main').css({'width': '100%', 'margin-left': '0', 'left' : '0', 'display' : 'none'});
+			$('.generic-story').each(function(i){
+				i > 0 ? $(this).addClass('off') : null
+				i == 0 ? $(this).addClass('active') : null
+			});
+		}else{
+			$('.menu--main').css({'width': 'auto', 'margin-left': '140px', 'display': 'flex'})
+		}
+	}
+
+	var theWidth = $(window).width();
+	$(window).smartresize(function(){
+		if($(this).width() != theWidth){
+			windowSize = $(window).innerWidth()
+			// mainMenu()
+			mainMenuSmall()
+			theWidth = $(this).width()
+		}
+	});
+	// mainMenu()
+	mainMenuSmall()
+</script>
