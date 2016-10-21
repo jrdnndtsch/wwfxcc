@@ -41,6 +41,7 @@ body {
 	margin: 0 auto;
 	@include display-for(sm xs){
 		flex-wrap: wrap;
+		width: 90%;
 	}
 
 }
@@ -55,6 +56,7 @@ body {
 	margin: 0 auto;
 	@include display-for(sm xs){
 		flex-wrap: wrap;
+		width: 90%;
 	}
 }
 
@@ -62,6 +64,7 @@ body {
 	display:flex;
 	@include display-for(sm xs){
 		flex-wrap: wrap;
+
 	}
 }
 
@@ -316,12 +319,23 @@ header {
 	text-align: center;
 	color: $white;
 	padding-top: 40vh;
+	font-family: 'WWF';
 	h1{
 		font-size: 58px;
 		font-weight: lighter;
 		letter-spacing: 2px;
 	}
-	font-family: 'WWF';
+	@include display-for(md sm) {
+		padding-top: 28vh;
+	}
+	@include display-for(xs) {
+		padding-top: 20vh;
+		h1 {
+			font-size: 48px;
+			padding: 0 12px;
+		}
+	}
+	
 }
 
 //ABOUT SECTION
@@ -371,6 +385,11 @@ header {
 //ZONE TOOLKITS
 .zone-toolkits--items {
 	flex-wrap: wrap;
+	&.flex-container{
+		@include display-for(md) {
+			flex-direction: column;
+		}
+	}
 	> div {
 		flex: 1 0 45%;
 		position: relative;
@@ -378,21 +397,30 @@ header {
 		&:nth-of-type(2n + 1) {
 			margin-right: 5%;
 		}
-		&:after {
-			content: '';
-			display: block;
-			padding-bottom: 100%;
+		@include display-for(xl) {
+			&:after {
+				content: '';
+				display: block;
+				padding-bottom: 100%;
+			}
+		}
+
+		@include display-for(lg md sm xs) {
+			position: static;
+			height: auto;
+			width: auto;
 		}
 	}
-	@include display-for(md) {
-
+	@include display-for(md sm xs) {
+		> div {
+			&:nth-of-type(2n + 1) {
+				margin-right: 0;
+			}
+		}
 	}
 	@include display-for(sm xs) {
 		> div {
 			flex: 1 0 100%;
-			&:nth-of-type(2n + 1) {
-				margin-right: 0;
-			}
 		}
 	}
 	figure {
@@ -403,15 +431,22 @@ header {
 		padding: 40px;
 		text-align: center;
 		box-shadow: 2px 4px 4 rgba(0,0,0,0.7);
-		> p {
-			position: absolute;
-			bottom: 40px;
-			left: 40px;
-			right: 40px;
+		.figure-content {
+			p {
+				position: absolute;
+				bottom: 40px;
+				left: 40px;
+				right: 40px;
+				@include display-for(lg md sm xs) {
+					position: static;
+					margin: 20px 0 40px;
+				}
+			}
 		}
 		&:hover {
 			figcaption {
 				opacity: 1;
+
 			}
 		}
 		img {
@@ -435,6 +470,54 @@ header {
 			text-align: center;
 			opacity:0;
 			transition: 0.3s all ease;
+			padding: 6% 14%;
+			letter-spacing: 1.2px;
+
+			h4 {
+				font-size: 22px;
+				&:first-of-type {
+					margin-top: 6%;
+				}
+			}
+			h4.hl {
+				color: $beige;
+				font-size: 20px;
+				padding-bottom: 24px;
+				margin: 24px 0;
+				border-bottom: 1px solid white;
+			}
+			p {
+				color: white;
+				font-weight: 100;
+			}
+			//media queries for figcaption
+			@include display-for(lg md sm xs) {
+				opacity: 1;
+				position: static;
+				padding: 6% 10%;
+			}
+			@include display-for(md) {
+				padding: 20px;
+				flex: 1 0 50%;
+			}
+		}
+		// media queries for figure
+		@include display-for(lg md sm xs) {
+			position: static;
+			height: auto;
+			width: auto;
+		}
+		@include display-for(md){
+			padding: 40px 28px;
+			display: flex;
+			align-items: center;
+			width: 100%;
+			.figure-content {
+				padding-right: 5%;
+			}
+		}
+		@include display-for(sm xs) {
+
 		}
 	}
 }
@@ -457,27 +540,32 @@ header {
 	margin: 0;
 	padding: 0;
 	position: relative;
-	&:after{
-		content: '';
-		width: 2px;
-		background: $grey;
-		position: absolute;
-		top: 50px;
-		bottom: 50px;
-		left: 40px;
+	@include display-for(xl lg md sm) {
 
+		&:after{
+			content: '';
+			width: 2px;
+			background: $grey;
+			position: absolute;
+			top: 50px;
+			bottom: 50px;
+			left: 40px;
+
+		}
 	}
 	@include display-for(sm) {
 		&:after {
 			top: 70px;
-			bottom: 70px;
+			bottom: 100px;
 		}
 	}
 	li {
 		display:flex;
 		align-items: center;
 		margin-bottom: 20px;
-		
+		@include display-for(xs) {
+			flex-direction: column;
+		}	
 		
 	}
 	.count {
@@ -512,6 +600,13 @@ header {
 			// margin-right: 20px;
 			flex: 0 0 120px;
 			text-align: center;
+			@include display-for(xs) {
+				flex: 0 0 100px;
+			}
+		}
+		@include display-for(xs) {
+			flex-direction: column;
+			text-align: center;
 		}
 	}
 }
@@ -534,7 +629,12 @@ h2.stories--title {
 	h3 {
 		color: white;
 	}
-	@include display-for(sm xs){
+	&.flex-container {
+		@include display-for(md) {
+			flex-direction: column;
+		}
+	}
+	@include display-for(md sm xs){
 		.stories--image {
 			width: 100%;
 			margin-right: 0;
