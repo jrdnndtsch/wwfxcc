@@ -432,14 +432,14 @@ header {
 			width: auto;
 		}
 	}
-	@include display-for(md sm xs) {
+	@include display-for(lg md sm xs) {
 		> div {
 			&:nth-of-type(2n + 1) {
 				margin-right: 0;
 			}
 		}
 	}
-	@include display-for(sm xs) {
+	@include display-for(lg md sm xs) {
 		> div {
 			flex: 1 0 100%;
 			-webkit-flex:1 0 100%;
@@ -460,10 +460,14 @@ header {
 				left: 40px;
 				right: 40px;
 				@include display-for(lg md sm xs) {
-					position: static;
-					margin: 20px 0 40px;
+					// position: static;
+					// margin: 20px 0 40px;
+					display: none;
 				}
 			}
+			@include display-for(lg md sm xs) {
+				margin-bottom: 20px;
+			}	
 		}
 		&:hover {
 			figcaption {
@@ -529,7 +533,7 @@ header {
 				position: static;
 				padding: 6% 10%;
 			}
-			@include display-for(md) {
+			@include display-for(lg md sm) {
 				padding: 20px;
 				flex: 1 0 50%;
 				-webkit-flex: 1 0 50%;
@@ -541,7 +545,7 @@ header {
 			height: auto;
 			width: auto;
 		}
-		@include display-for(md){
+		@include display-for(lg md sm){
 			padding: 40px 28px;
 			display: flex;
 			display: -webkit-flex;
