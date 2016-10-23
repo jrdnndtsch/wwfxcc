@@ -16,12 +16,12 @@
 	<div class="wrapper wrapper--nav">
 		<div class="logo"><%= link_to root_path do %><%= image_tag 'logo.png'%><% end %></div>
 		<ul class="menu--main">
-			<li><a href="">in the zone</a></li>
-			<li><a href="">what can you grow?</a></li>
-			<li><a href="">how it works</a></li>
-			<li><a href="">what's going on</a></li>
+			<li><%= link_to 'in the zone', root_path(:anchor => 'in-the-zone')%></li>
+			<li><%= link_to 'what can you grow?', root_path(:anchor => 'what-can-you-grow')%></li>
+			<li><%= link_to 'how-it-works', root_path(:anchor => 'how-it-works')%></li>
+			<li><%= link_to 'what\'s going on', root_path(:anchor => 'events')%></li>
 			<li><%= link_to 'About Us', about_path %></li>
-			<li class="nav--sign-up"><a href="">sign up</a></li>
+			<li class="nav--sign-up"><%= link_to 'sign up', root_path(:anchor => 'sign-up')%></li>
 		</ul>
 	</div>
 </nav>
@@ -78,6 +78,19 @@
 		$(this).toggleClass('active');
 		$('.menu--main').slideToggle('normal')
 	})
+
+	$('a[href*="#"]:not([href="#"])').click(function() {
+	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+	      var target = $(this.hash);
+	      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+	      if (target.length) {
+	        $('html, body').animate({
+	          scrollTop: target.offset().top
+	        }, 1000);
+	        return false;
+	      }
+	    }
+	  });
 	var windowSize = $(window).innerWidth()
 
 	function mainMenuSmall(){

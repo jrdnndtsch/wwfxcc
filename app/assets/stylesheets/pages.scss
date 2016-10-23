@@ -41,6 +41,8 @@ body {
 	margin: 0 auto;
 	@include display-for(sm xs){
 		flex-wrap: wrap;
+		-webkit-flex-wrap: wrap;
+		-webkit-flex-direction: row;
 		width: 90%;
 	}
 
@@ -56,6 +58,8 @@ body {
 	margin: 0 auto;
 	@include display-for(sm xs){
 		flex-wrap: wrap;
+		-webkit-flex-wrap: wrap;
+		-webkit-flex-direction: row;
 		width: 90%;
 	}
 }
@@ -64,7 +68,8 @@ body {
 	display:flex;
 	@include display-for(sm xs){
 		flex-wrap: wrap;
-
+		-webkit-flex-wrap: wrap;
+		-webkit-flex-direction: row;
 	}
 }
 
@@ -91,6 +96,7 @@ body {
 .section-tertiary {
 	padding: 80px 0 120px;
 	background: linear-gradient(bottom right, #267305, #1C3908);
+	background: -moz-linear-gradient(bottom right, #267305, #1C3908);
 	h2 {
 		color: $green--light;
 	}
@@ -241,6 +247,7 @@ nav {
 
 	.wrapper {
 		display: flex;
+		display: -webkit-flex;
 	}
 	ul, .logo {
 		// flex-basis: 100px;
@@ -259,14 +266,19 @@ nav {
 	}
 	ul {
 		list-style: none;
+		// width: 100%;
 		margin: 0;
 		padding: 0;
 		display: flex;
+		display: -webkit-flex;
 		flex-grow: 1;
+		-webkit-flex-grow: 1;
 		justify-content: space-between;
+		-webkit-justify-content: space-between;
 		padding: 0;
 		li {
 			flex-grow: 1;
+			-webkit-flex-grow: 1;
 			text-align: center;
 		}
 		li.nav--sign-up {
@@ -326,14 +338,18 @@ header {
 		font-size: 58px;
 		font-weight: lighter;
 		letter-spacing: 2px;
+		text-shadow: 3px 3px 8px rgba(0,0,0,0.7);
 	}
 	@include display-for(md sm) {
 		padding-top: 28vh;
+		h1 {
+			font-size: 44px;
+		}
 	}
 	@include display-for(xs) {
 		padding-top: 20vh;
 		h1 {
-			font-size: 48px;
+			font-size: 40px;
 			padding: 0 12px;
 		}
 	}
@@ -387,6 +403,8 @@ header {
 //ZONE TOOLKITS
 .zone-toolkits--items {
 	flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+	// -webkit-flex-direction: row;
 	&.flex-container{
 		@include display-for(md) {
 			flex-direction: column;
@@ -394,8 +412,9 @@ header {
 	}
 	> div {
 		flex: 1 0 45%;
+		-webkit-flex: 1 0 45%;
 		position: relative;
-		margin-bottom: 5%;
+		margin-bottom: 30px;
 		&:nth-of-type(2n + 1) {
 			margin-right: 5%;
 		}
@@ -423,6 +442,7 @@ header {
 	@include display-for(sm xs) {
 		> div {
 			flex: 1 0 100%;
+			-webkit-flex:1 0 100%;
 		}
 	}
 	figure {
@@ -475,6 +495,7 @@ header {
 			padding: 6% 14%;
 			letter-spacing: 1.2px;
 
+
 			h4 {
 				font-size: 22px;
 				&:first-of-type {
@@ -493,6 +514,16 @@ header {
 				font-weight: 100;
 			}
 			//media queries for figcaption
+			@include display-for(xl) {
+				p {
+					&:first-of-type {
+						margin-top: 5%;
+					}
+				}
+				h4 + p {
+					margin-top: 0;
+				}
+			}
 			@include display-for(lg md sm xs) {
 				opacity: 1;
 				position: static;
@@ -501,6 +532,7 @@ header {
 			@include display-for(md) {
 				padding: 20px;
 				flex: 1 0 50%;
+				-webkit-flex: 1 0 50%;
 			}
 		}
 		// media queries for figure
@@ -512,7 +544,9 @@ header {
 		@include display-for(md){
 			padding: 40px 28px;
 			display: flex;
+			display: -webkit-flex;
 			align-items: center;
+			-webkit-align-items: center;
 			width: 100%;
 			.figure-content {
 				padding-right: 5%;
@@ -564,6 +598,7 @@ header {
 	li {
 		display:flex;
 		align-items: center;
+		-webkit-align-items: center;
 		margin-bottom: 20px;
 		@include display-for(xs) {
 			flex-direction: column;
@@ -578,10 +613,13 @@ header {
 		border-radius: 50%;
 		font-size: 40px;
 		display: flex;
+		display: -webkit-flex;
 		border: 5px solid white;
 		flex: 0 0 80px;
-		z-index: 1;
+		-webkit-flex: 0 0 80px;
+		z-index: 10;
 		transition: 0.3s all ease;
+
 		&:hover {
 			border: 5px solid $green;
 		}
@@ -593,17 +631,22 @@ header {
 	.content {
 		padding: 30px;
 		display: flex;
+		display: -webkit-flex;
 		flex-grow: 1;
+		-webkit-flex-grow: 1;
 		align-items: center;
+		-webkit-align-items: center;
 		h3 {
 			margin-top: 0;
 		}
 		.img {
 			// margin-right: 20px;
 			flex: 0 0 120px;
+			-webkit-flex: 0 0 120px;			
 			text-align: center;
 			@include display-for(xs) {
 				flex: 0 0 100px;
+				-webkit-flex: 0 0 100px;
 			}
 		}
 		@include display-for(xs) {
@@ -621,6 +664,7 @@ h2.stories--title {
 .section--stories {
 	color: white;
 	margin-bottom: 160px;
+
 	.stories--image {
 		width: 37%;
 		margin-right: 8%;
@@ -635,6 +679,9 @@ h2.stories--title {
 		@include display-for(md) {
 			flex-direction: column;
 		}
+	}
+	p {
+		font-weight: 100;
 	}
 	@include display-for(md sm xs){
 		.stories--image {
@@ -655,10 +702,12 @@ h2.events--title {
 }
 .section--events {
 	justify-content: space-between;
+	-webkit-justify-content: space-between;
 	.events--item {
 		background: white;
 		padding: 30px 22px;
 		flex: 0 0 30%;
+		-webkit-flex: 0 0 30%;
 		h3 {
 			margin-top: 0;
 			font-size: 24px;
@@ -676,6 +725,7 @@ h2.events--title {
 		p {
 			width: 80%;
 			color: $brown;
+			font-weight: 100;
 		}
 	}
 	// @include display-for(sm) {
@@ -695,15 +745,16 @@ h2.events--title {
 @include display-for(md sm xs) {
 	.section--events {
 		flex-wrap : wrap;
+		-webkit-flex-wrap: wrap;
+		-webkit-flex-direction: row;
 		.events--item {
 			flex: 1 0 300px;
+			-webkit-flex: 1 0 300px;
 			margin-bottom: 20px;
 			&:first-of-type {
 				margin-right: 20px;
 			}
-			p {
-				font-weight: 100;
-			}
+			
 
 		}
 	}
@@ -713,6 +764,7 @@ h2.events--title {
 	.section--events {
 		.events--item {
 			flex: 1 0 100%;
+			-webkit-flex: 1 0 100%;
 			&:first-of-type {
 				margin-right: 0;
 			}
@@ -806,7 +858,9 @@ h2.events--title {
 
 .about--company {
 	display: flex;
+	display: -webkit-flex;
 	align-items: center;
+	-webkit-align-items: center;
 	margin-bottom: 40px;
 	.content {
 		width: 60%;
