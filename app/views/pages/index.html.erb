@@ -1,6 +1,6 @@
 <header id="bg-header">
 	<div class="header--content">
-		<h1>Your Garden Can Help Native Species Thrive<br>Your Yard is a Habitat Waiting to Grow</h1>
+		<h1>Your Garden Can Help Native Species Thrive</h1>
 		<a href="#sign-up" class="button button--primary">Join Us in the Zone</a>
 	</div>
 	<div class="bg-fade" id="bg-fade-1"></div>
@@ -17,7 +17,7 @@
 			<p>When you join In the Zone, you can <strong>connect with a community of gardeners</strong> to share tips, exchange native plants and celebrate successes knowing you are making a difference where you live. Your collective efforts will help preserve biodiversity and the health of the wider ecosystem on which people and wildlife depend.</p>
 		</div>
 		<div class="about--image">
-			<%= image_tag 'ladybug.png' %>
+			<%= image_tag 'gardener.jpg' %>
 		</div>
 	</div>
 </section>
@@ -187,28 +187,35 @@
 			</div>
 			<div class="stories--content">
 				<h3>Meet Veronica.</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam quo, enim! Saepe perferendis accusantium harum, at aperiam iste assumenda rerum unde porro excepturi voluptatem est velit dignissimos ducimus recusandae blanditiis, dolorem facilis nemo minima repellat iure veritatis officia. Repudiandae deserunt voluptatibus ipsam, dolorem officia expedita aut quis assumenda rerum quam maiores numquam, animi qui et perferendis nam dolor impedit fuga.</p>
+				<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam quo, enim! Saepe perferendis accusantium harum, at aperiam iste assumenda rerum unde porro excepturi voluptatem est velit dignissimos ducimus recusandae blanditiis, dolorem facilis nemo minima repellat iure veritatis officia. Repudiandae deserunt voluptatibus ipsam, dolorem officia expedita aut quis assumenda rerum quam maiores numquam, animi qui et perferendis nam dolor impedit fuga.</p> -->
 			</div>
 		</div>
 		<h2 class="text-center events--title" id="events">What's Happening?</h2>
 		<div class="flex-container section--events">
-			<div class="events--item">
-				<h3>Go Wild - Grow Wild Expo</h3>
+			<div class="events--item events--image">
+				<div class="image">
+					<%= image_tag 'bg-plants.jpg'%>
+				</div>
+				<!-- <h3>Go Wild - Grow Wild Expo</h3>
 				<p class="date">April 8, 2017</p>
 				<p>Metroland Media Agriplex Western Fair District</p>
-				<p>845 Florence St. London, ON</p>
-			</div>
-			<div class="events--item">
-				<h3>NATURE NIGHTS</h3>
-				<p class="date">April 8, 2017</p>
-				<p>Metroland Media Agriplex Western Fair District</p>
-				<p>845 Florence St. London, ON</p>
+				<p>845 Florence St. London, ON</p> -->
 			</div>
 			<div class="events--item">
 				<h3>Go Wild - Grow Wild Expo</h3>
 				<p class="date">April 8, 2017</p>
+				<a href="http://gowildgrowwild.ca/expo" target="_blank" class="p--small">gowildgrowwild.ca/expo</a>
 				<p>Metroland Media Agriplex Western Fair District</p>
 				<p>845 Florence St. London, ON</p>
+			</div>
+			<div class="events--item events--image">
+				<div class="image">
+					<%= image_tag 'bg-shovel.jpg'%>
+				</div>
+				<!-- <h3>Go Wild - Grow Wild Expo</h3>
+				<p class="date">April 8, 2017</p>
+				<p>Metroland Media Agriplex Western Fair District</p>
+				<p>845 Florence St. London, ON</p> -->
 			</div>
 		</div>
 	</div>
@@ -222,7 +229,7 @@
 		      action="https://wwfcanada.wufoo.eu/forms/m10h44xh1luc4er/#public">
 		  	<ul>
 				<li id="foli1" class="notranslate      ">
-					<label class="desc" id="title1" for="Field1">Name</label>
+					<label class="desc" id="title1" for="Field1">Name*</label>
 				<div class="clearfix">
 					
 					<input id="Field1" name="Field1" type="text" class="field text fn form--half form--half-margin" value="" size="8" tabindex="1" required  />

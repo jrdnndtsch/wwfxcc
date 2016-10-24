@@ -100,7 +100,7 @@ body {
 	background: linear-gradient(bottom right, #267305, #1C3908);
 	background: -moz-linear-gradient(bottom right, #267305, #1C3908);
 	background
-	h2 {
+	h2.stories--title, h2.events--title {
 		color: $green--light;
 	}
 	p {
@@ -186,7 +186,7 @@ nav {
 	position: absolute;
 	top: 65px;
 	width: 100%;
-	z-index: 10;
+	z-index: 100;
 	@include display-for(lg) {
 		font-size: 16px;
 	}
@@ -708,6 +708,7 @@ header {
 
 h2.stories--title {
 	margin-bottom: 80px;
+	color: $green--light;
 }
 .section--stories {
 	color: white;
@@ -751,11 +752,34 @@ h2.events--title {
 .section--events {
 	justify-content: space-between;
 	-webkit-justify-content: space-between;
+	.events--image {
+		display: flex;
+		display: -webkit-flex;
+		.image {
+			margin: auto;
+		}
+		// img {
+		// 	position: absolute;
+		//     width: 80%;
+		//     left: 10%;
+		//     top: 50%;
+		//     transform: translateY(-50%);
+		// }
+	}
 	.events--item {
 		background: white;
 		padding: 30px 22px;
 		flex: 0 0 30%;
 		-webkit-flex: 0 0 30%;
+		img {
+			display: block;
+		}
+		a {
+			color: $green;
+			font-size: 14px;
+			margin: 12px 0;
+			display: inline-block;
+		}
 		h3 {
 			margin-top: 0;
 			font-size: 24px;
@@ -996,7 +1020,9 @@ footer {
 	padding: 12px 0;
 	p{
 		color: white;
-		font-size: 14px;
+		font-size: 12px;
+		font-style: italic;
+		line-height: 16px;
 	}
 }
 
