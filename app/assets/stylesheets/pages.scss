@@ -95,7 +95,7 @@ body {
 }
 .section-tertiary {
 	padding: 80px 0 120px;
-	// background: image-url('bg-grass') fixed center center no-repeat;
+	// background: image-url('bg-grass');
 	// background-size: cover;
 	background: linear-gradient(bottom right, #267305, #1C3908);
 	background: -moz-linear-gradient(bottom right, #267305, #1C3908);
@@ -123,6 +123,9 @@ p.sub-title {
 	width: 80%;
 	margin: 0 10% 60px;
 
+}
+p.p--small {
+	font-size: 14px;
 }
 p + p {
 	margin-top: 12px;
@@ -895,6 +898,7 @@ h2.events--title {
 .section--about {
 	h2 {
 		color: $black;
+		text-align: left;
 	}
 	@include display-for(xl lg) {
 		padding-top: 200px;
@@ -914,6 +918,9 @@ h2.events--title {
 		}
 		@include display-for(sm xs) {
 			width:100%;
+		}
+		a {
+			color: $green;
 		}
 	}
 	.logo {
