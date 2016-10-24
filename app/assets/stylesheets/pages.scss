@@ -358,13 +358,15 @@ header {
 
 //ABOUT SECTION
 .section--about {
-	h2 {
-		color: $green;
-		font-size: 65px;
-		font-weight: lighter;
-		line-height: 80px;
-		text-align: left;
-		letter-spacing: 2.5px;
+	.about--content {
+		h2 {
+			color: $green;
+			font-size: 65px;
+			font-weight: lighter;
+			line-height: 80px;
+			text-align: left;
+			letter-spacing: 2.5px;
+		}
 	}
 	h3 {
 		color: $green--light;
@@ -405,14 +407,15 @@ header {
 	flex-wrap: wrap;
 	-webkit-flex-wrap: wrap;
 	// -webkit-flex-direction: row;
-	&.flex-container{
-		@include display-for(md) {
+	.flex-container{
+		@include display-for(lg md sm xs) {
 			flex-direction: column;
 		}
 	}
-	> div {
+	.flex-container > div {
 		flex: 1 0 45%;
 		-webkit-flex: 1 0 45%;
+		min-width: 47.5%;
 		position: relative;
 		margin-bottom: 30px;
 		&:nth-of-type(2n + 1) {
@@ -433,14 +436,14 @@ header {
 		}
 	}
 	@include display-for(lg md sm xs) {
-		> div {
+		.flex-container > div {
 			&:nth-of-type(2n + 1) {
 				margin-right: 0;
 			}
 		}
 	}
 	@include display-for(lg md sm xs) {
-		> div {
+		.flex-container > div {
 			flex: 1 0 100%;
 			-webkit-flex:1 0 100%;
 		}
@@ -537,6 +540,10 @@ header {
 				padding: 20px;
 				flex: 1 0 50%;
 				-webkit-flex: 1 0 50%;
+			}
+			@include display-for(xs) {
+				flex: 1 0 100%;
+				-webkit-flex: 1 0 100%;
 			}
 		}
 		// media queries for figure
