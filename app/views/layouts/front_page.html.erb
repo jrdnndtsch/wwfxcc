@@ -120,20 +120,58 @@
 	base = "https://s3.amazonaws.com/carolinian/",
 	secs = 4;
 	bgImageArray.forEach(function(img){
-	    new Image().src = base + img; 
+	    var image = new Image().src = base + img;
 	    // caches images, avoiding white flash between background replacements
 	});
 
-	function backgroundSequence() {
-		window.clearTimeout();
-		var k = 0;
-		for (i = 0; i < bgImageArray.length; i++) {
-			setTimeout(function(){ 
-				document.getElementById('bg-header').style.background = "url(" + base + bgImageArray[k] + ") no-repeat center center fixed";
-				document.getElementById('bg-header').style.backgroundSize ="cover";
-			if ((k + 1) === bgImageArray.length) { setTimeout(function() { backgroundSequence() }, (secs * 2000))} else { k++; }			
-			}, (secs * 2000) * i)	
-		}
+	var imageSet1 = ["butterfly-header.jpg", "bg-bee.jpg", "bg-frog.jpg"];
+	var currentImageSet1 = 0;
+
+	var imageSet2 = ["bg-gardener.jpg", "bg-plants.jpg", 'bg-shovel.jpg'];
+	var currentImageSet2 = 0;
+
+	function changeBackgroundImages() {
+	    img1Fade();
+	    setTimeout(img2Fade, 2000);
+
 	}
-	backgroundSequence();
+
+	function img1Fade(){
+
+	    $('#bg-fade-1').fadeOut('slow', function(){
+	    	$('#bg-fade-1').css({background: 'url('+ base + imageSet1[++currentImageSet1] + ')  no-repeat center center fixed', 'background-size': 'cover'})
+		});
+	    $('#bg-fade-2').fadeIn('slow');
+	    if (currentImageSet1 >= imageSet1.length - 1) {
+
+	            currentImageSet1 -= imageSet1.length;
+	        };
+	}
+
+	function img2Fade(){
+
+	    $('#bg-fade-2').fadeOut('slow', function(){$('#bg-fade-2').css({background: 'url('+ base + imageSet2[++currentImageSet2] + ') no-repeat center center fixed', 'background-size': 'cover'})});
+	    $('#bg-fade-1').fadeIn('slow');
+	    if (currentImageSet2 >= imageSet2.length - 1) {
+
+	            currentImageSet2 -= imageSet2.length;
+	        };
+	}
+
+	setTimeout(img1Fade, 1000);
+	setTimeout(img2Fade, 2000);
+	setInterval(changeBackgroundImages, 5000);
+
+	// function backgroundSequence() {
+	// 	window.clearTimeout();
+	// 	var k = 0;
+	// 	for (i = 0; i < bgImageArray.length; i++) {
+	// 		setTimeout(function(){ 
+	// 			document.getElementById('bg-header').style.background = "url(" + base + bgImageArray[k] + ") no-repeat center center fixed";
+	// 			document.getElementById('bg-header').style.backgroundSize ="cover";
+	// 		if ((k + 1) === bgImageArray.length) { setTimeout(function() { backgroundSequence() }, (secs * 1500))} else { k++; }			
+	// 		}, (secs * 1500) * i)	
+	// 	}
+	// }
+	// backgroundSequence();
 </script>

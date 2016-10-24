@@ -95,8 +95,11 @@ body {
 }
 .section-tertiary {
 	padding: 80px 0 120px;
+	// background: image-url('bg-grass') fixed center center no-repeat;
+	// background-size: cover;
 	background: linear-gradient(bottom right, #267305, #1C3908);
 	background: -moz-linear-gradient(bottom right, #267305, #1C3908);
+	background
 	h2 {
 		color: $green--light;
 	}
@@ -180,7 +183,10 @@ nav {
 	position: absolute;
 	top: 65px;
 	width: 100%;
-	
+	z-index: 10;
+	@include display-for(lg) {
+		font-size: 16px;
+	}
 	.main--toggle {
 		display: none;
 		@include display-for(md sm xs) {
@@ -325,7 +331,7 @@ nav {
 
 // HEADER
 header {
-	background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.3)), image-url('butterfly-header.jpg') no-repeat center center fixed;
+	// background: image-url('butterfly-header.jpg') no-repeat center center fixed;
 	background-size: cover;
 	background-blend-mode: darken;
 	height: 100vh;
@@ -334,6 +340,33 @@ header {
 	padding-top: 40vh;
 	font-family: 'WWF';
 	transition: 2s ease;
+	position: relative;
+	.bg-fade {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 1;
+		background-size: cover;
+	}
+	#bg-fade-1 {
+		background: image-url('butterfly-header.jpg') no-repeat center center fixed;
+		background-size: cover;
+	}
+	#bg-fade-2 {
+		background: image-url('bg-shovel.jpg') no-repeat center center fixed;
+		background-size: cover;
+	}
+	.header--content {
+		position: absolute;
+		z-index: 10;
+		top: 40%;
+		width: 100%;
+		@include display-for(sm xs) {
+			top: 25%;
+		}
+	}
 	h1{
 		font-size: 58px;
 		font-weight: lighter;
@@ -570,16 +603,16 @@ header {
 }
 
 //JOIN SECTION
-.section--join {
-	background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6) ), image-url('bg-join.jpg') center;
-	background-size: cover;
-	h2 {
-		color: $green--light;
-	}
-	h3 {
-		color: white;
-	}
-}
+// .section--join {
+// 	background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6) ), image-url('bg-join.jpg') center;
+// 	background-size: cover;
+// 	h2 {
+// 		color: $green--light;
+// 	}
+// 	h3 {
+// 		color: white;
+// 	}
+// }
 
 //JOURNEY SECTION
 .journey--items {
