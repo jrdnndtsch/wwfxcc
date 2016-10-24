@@ -166,8 +166,17 @@
 	            currentImageSet2 -= imageSet2.length;
 	        };
 	}
+	var photoInterval
+	function startInterval(){
+		 photoInterval = setInterval(changeBackgroundImages, 4000);
+	}
 
-	setInterval(changeBackgroundImages, 4000);
+	if(typeof photoInterval == "number") {
+		
+	}else {
+		
+		startInterval()
+	}
 
 	// function backgroundSequence() {
 	// 	window.clearTimeout();
