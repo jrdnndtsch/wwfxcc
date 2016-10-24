@@ -124,6 +124,12 @@
 	    // caches images, avoiding white flash between background replacements
 	});
 
+
+	var imageSet1 = ["butterfly-header.jpg", "bg-bee.jpg", "bg-frog.jpg"];
+	var currentImageSet1 = 0;
+
+	var imageSet2 = ["bg-gardener.jpg", "bg-plants.jpg", 'bg-shovel.jpg'];
+	var currentImageSet2 = 0;
 	imageSet1.forEach(function(img){
 	    var image = new Image().src = base + img;
 	    // caches images, avoiding white flash between background replacements
@@ -132,12 +138,6 @@
 	    var image = new Image().src = base + img;
 	    // caches images, avoiding white flash between background replacements
 	});
-
-	var imageSet1 = ["butterfly-header.jpg", "bg-bee.jpg", "bg-frog.jpg"];
-	var currentImageSet1 = 0;
-
-	var imageSet2 = ["bg-gardener.jpg", "bg-plants.jpg", 'bg-shovel.jpg'];
-	var currentImageSet2 = 0;
 
 	function changeBackgroundImages() {
 	    img1Fade();
@@ -167,9 +167,7 @@
 	        };
 	}
 
-	// setTimeout(img1Fade, 1000);
-	setTimeout(img2Fade, 2000);
-	setInterval(changeBackgroundImages, 5000);
+	setInterval(changeBackgroundImages, 4000);
 
 	// function backgroundSequence() {
 	// 	window.clearTimeout();
