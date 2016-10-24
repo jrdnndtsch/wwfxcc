@@ -124,6 +124,15 @@
 	    // caches images, avoiding white flash between background replacements
 	});
 
+	imageSet1.forEach(function(img){
+	    var image = new Image().src = base + img;
+	    // caches images, avoiding white flash between background replacements
+	});
+	imageSet2.forEach(function(img){
+	    var image = new Image().src = base + img;
+	    // caches images, avoiding white flash between background replacements
+	});
+
 	var imageSet1 = ["butterfly-header.jpg", "bg-bee.jpg", "bg-frog.jpg"];
 	var currentImageSet1 = 0;
 
@@ -158,7 +167,7 @@
 	        };
 	}
 
-	setTimeout(img1Fade, 1000);
+	// setTimeout(img1Fade, 1000);
 	setTimeout(img2Fade, 2000);
 	setInterval(changeBackgroundImages, 5000);
 
