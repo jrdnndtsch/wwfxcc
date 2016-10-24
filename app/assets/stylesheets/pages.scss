@@ -954,6 +954,20 @@ footer {
 .footer--main {
 	background: $brown;
 	padding: 40px 0;
+	.flex-container {
+		justify-content: space-between;
+		-webkit-justify-content: space-between;
+		align-items: flex-end;
+		-webkit-align-items: flex-end;
+	}
+	.logos {
+		img {
+			max-width: 140px;
+			&:first-of-type {
+				margin-right: 12px;
+			}
+		}
+	}
 	ul {
 		font-weight: 100;
 		list-style: none;
