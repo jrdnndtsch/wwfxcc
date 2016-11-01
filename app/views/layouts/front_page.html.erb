@@ -121,6 +121,21 @@
 	});
 	mainMenuSmall()
 
+	function preloadImage(source, destElem) {
+	    var image = new Image();
+
+	    image.src = source;
+
+	    image.onload = function () {
+	        var cssBackground = 'url(' + image.src + ')';
+
+	        $(destElem).css('background-image', cssBackground);
+	        console.log('loaded')
+	    };
+	}
+
+	preloadImage('https://s3.amazonaws.com/carolinian/bg-shovel.jpg', '#bg-fade-2')
+
 	//Header image fade
 	var bgImageArray = [ "butterfly-header.jpg", "bg-bee.jpg", "bg-frog.jpg", "bg-gardener.jpg", "bg-plants.jpg"],
 	base = "https://s3.amazonaws.com/carolinian/",
