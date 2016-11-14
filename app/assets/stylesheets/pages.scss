@@ -959,7 +959,7 @@ h2.events--title {
 	}
 }
 
-.partners--section, .resources--section {
+.section--partners, .section--resources {
 	h2 {
 		color: $black;
 		text-align: left;
@@ -967,6 +967,28 @@ h2.events--title {
 	}
 }
 
+.section--resources {
+	h4 {
+		font-style: italic;
+	}
+	a {
+		display: block;
+		color: $green--light;
+		margin-bottom: 18px;
+		&:hover {
+			color: $green;
+		}
+	}
+	a + h4 {
+		margin-top: 40px;
+	}
+	a + h3 {
+		margin-top: 60px;
+	}
+	p {
+		margin-top: 18px;
+	}
+}
 //FOOTER 
 footer {
 	color: white;
