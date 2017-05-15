@@ -965,12 +965,6 @@ h2.events--title {
 		text-align: left;
 
 	}
-}
-
-.section--resources {
-	h4 {
-		font-style: italic;
-	}
 	a {
 		display: block;
 		color: $green--light;
@@ -978,6 +972,24 @@ h2.events--title {
 		&:hover {
 			color: $green;
 		}
+	}
+}
+
+.section--partners {
+	.col-md-7 {
+		margin-bottom: 18px;
+		a {
+			margin-bottom: 0;
+		}
+	}
+	.col-md-7 .col-md-7 {
+		padding: 0;
+	}
+}
+
+.section--resources {
+	h4 {
+		font-style: italic;
 	}
 	a + h4 {
 		margin-top: 40px;
