@@ -445,6 +445,17 @@ header {
 	-webkit-flex-wrap: wrap;
 	// -webkit-flex-direction: row;
 	.flex-container{
+		// when there is only one content block on second row
+		&:nth-of-type(2) {
+			justify-content: center;
+			> div {
+				max-width: 45%;
+				&:nth-of-type(2n + 1) {
+					margin-right: 0;
+				}
+			}
+		}
+		// end when there is only one content block on second row
 		@include display-for(lg md sm xs) {
 			flex-direction: column;
 		}
@@ -454,10 +465,11 @@ header {
 		-webkit-flex: 1 0 45%;
 		min-width: 47.5%;
 		position: relative;
-		margin-bottom: 30px;
+		margin-bottom: 5%;
 		&:nth-of-type(2n + 1) {
 			margin-right: 5%;
 		}
+	
 		@include display-for(xl) {
 			&:after {
 				content: '';
