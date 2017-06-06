@@ -458,6 +458,13 @@ header {
 					margin-right: 0;
 				}
 			}
+			@include display-for(lg md sm xs) {
+				> div {
+					flex: 1 0 100%;
+					-webkit-flex:1 0 100%;
+					max-width: 100%;
+				}
+			}
 		}
 		// end when there is only one content block on second row
 		@include display-for(lg md sm xs) {
