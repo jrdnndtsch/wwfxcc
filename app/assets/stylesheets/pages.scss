@@ -947,9 +947,6 @@ h2.events--title {
 		color: $black;
 		text-align: left;
 	}
-	@include display-for(xl lg) {
-		padding-top: 200px;
-	}
 }
 
 .about--company {
